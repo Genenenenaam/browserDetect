@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Detects Browser</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+</head>
+
+
+<body>
+  <div class="container" style="margin-top: 50px">
+    <h2>Your browser info</h2>
+    <ul>
+      <li id="browser">
+
+      </li>
+      <li id="version">
+
+      </li>
+      <li id="OS">
+
+      </li>
+    </ul>
+  </div>
+
+
+
+    <script src="browserDetect.js"></script>
+    <script>
+    browserDetect.init();
+
+    document.getElementById("browser").innerHTML = "Browser: " + browserDetect.browser
+    document.getElementById("version").innerHTML = "Version: " + browserDetect.version
+    document.getElementById("OS").innerHTML = "OS: " + browserDetect.OS
+
+    </script>
+</body>
+
+</html>
