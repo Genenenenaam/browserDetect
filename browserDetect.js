@@ -1,14 +1,14 @@
 //detects which browser the user is using and stores in var Browserinfo//
-//toDo: missing newer browser MS Edge //
+
 var browserDetect = {
-    init: function() {
+    init: function () {
         this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
         this.version = this.searchVersion(navigator.userAgent) ||
             this.searchVersion(navigator.appVersion) ||
             "an unknown version";
         this.OS = this.searchString(this.dataOS) || "an unknown OS";
     },
-    searchString: function(data) {
+    searchString: function (data) {
         for (var i = 0; i < data.length; i++) {
             var dataString = data[i].string;
             var dataProp = data[i].prop;
@@ -20,12 +20,16 @@ var browserDetect = {
                 return data[i].identity;
         }
     },
-    searchVersion: function(dataString) {
+    searchVersion: function (dataString) {
         var index = dataString.indexOf(this.versionSearchString);
         if (index == -1) return;
         return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
     },
     dataBrowser: [{
+        string: navigator.userAgent,
+        subString: "Edge",
+        identity: "Edge"
+    }, {
         string: navigator.userAgent,
         subString: "Chrome",
         identity: "Chrome"
